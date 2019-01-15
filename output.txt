@@ -1,0 +1,35 @@
+.MODEL SMALL
+.DATA
+A DB  1
+B DB  0
+.CODE
+MOV DS,AX
+MOV AL,NUM1
+MOV BL,NUM2
+ADD AL,BL
+ 
+ MOV AH , A 
+ ADD A , B 
+ MUL AX 
+ INT 21H 
+ 
+ LBL1: MOV AH , A 
+  
+ ADD AX , A 
+ 
+ JMP LBL1 
+ 
+ LBL2: MOV AH , B 
+  
+ MUL AX , B 
+  
+ JMP LBL2 
+
+ MOV AH , 4CH 
+ INT 21H 
+ 
+ MOV AH , AX 
+ ADD AX , BX 
+ MUL AX 
+ INT 21H 
+END
